@@ -8,6 +8,7 @@ CREATE TABLE tbl_courses (
   event_date_dt date NOT NULL,
   event_hour_var varchar(10) NOT NULL,
   status_var varchar(10) NOT NULL DEFAULT 'Aberto',
+  justification_var varchar(255) NULL,
   creation_date_dt date NOT NULL,
   modification_date_dt date NOT NULL
 );
