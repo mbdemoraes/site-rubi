@@ -61,8 +61,8 @@ include('../session.php');
                                             <label>Endereço</label>
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-home"></span></span>
-                                            <input type="text" minlength="10" maxlength="100" class="form-control" name="customer['address_var']" placeholder="Digite o endereco do cliente..." type="text"
-                                                  data-error="Por favor, informe um endereço válido. Mínimo de 10 e máximo de 100 caracteres." autocomplete="off" required>
+                                            <input type="text" class="form-control" name="customer['address_var']" placeholder="Digite o endereco do cliente..." type="text"
+                                                  data-error="Por favor, informe um endereço válido. Mínimo de 10 e máximo de 100 caracteres." autocomplete="off" >
                                              </div>
                                              <div class="help-block with-errors"></div>
                                          </div>
@@ -71,7 +71,7 @@ include('../session.php');
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon glyphicon-duplicate"></span></span>
                                             <input type="text" id="rg" class="form-control" name="customer['rg_var']" placeholder="Digite o RG do cliente..." type="text"
-                                                  data-error="Por favor, informe um RG válido." autocomplete="off" required>
+                                                  data-error="Por favor, informe um RG válido." autocomplete="off" >
                                              </div>
                                              <div class="help-block with-errors"></div>
                                          </div>
@@ -80,7 +80,7 @@ include('../session.php');
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon glyphicon-duplicate"></span></span>
                                             <input type="text" id="cpf" class="form-control" name="customer['cpf_var']" placeholder="Digite o CPF do cliente..."
-                                                  data-error="Por favor, informe um CPF válido." autocomplete="off" required>
+                                                  data-error="Por favor, informe um CPF válido." autocomplete="off" >
                                              </div>
                                               <div class="help-block with-errors"></div>
                                          </div>
@@ -110,7 +110,7 @@ include('../session.php');
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                                             <input type="text" id="birthday" class="form-control" name="customer['birthday_dt']" placeholder="Digite a data de nascimento do cliente..."
-                                                  data-error="Por favor, informe uma data de nascimento válida." autocomplete="off" required>
+                                                  data-error="Por favor, informe uma data de nascimento válida." autocomplete="off" >
                                              </div>
                                              <div class="help-block with-errors"></div>
                                          </div>
