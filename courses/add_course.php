@@ -95,7 +95,7 @@ include('../session.php');
                                      <div class="form-group">
                                             <label>Horário do Curso</label>
                                             <div class="input-group input-append">
-                                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-usd"></span></span>
+                                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-dashboard"></span></span>
                                             <input type="text" id="event_hour" class="form-control" name="course['event_hour_var']" placeholder="Digite o horário do curso ..."  data-error="Por favor, informe um horário válido." autocomplete="off" required>
                                              </div>
                                               <div class="help-block with-errors"></div>
