@@ -42,25 +42,25 @@ include('../session.php');
                                         </div>
                                  <div class="form-group">
                                     <label>Endereço</label>
-                                    <input type="text" class="form-control" minlength="10" maxlength="100" name="customer['address_var']" value="<?php echo $customer['address_var']; ?>" data-error="Por favor, informe um endereço válido. Mínimo de 10 e máximo de 100 caracteres."  autocomplete="off" required>
+                                    <input type="text" class="form-control" minlength="10" maxlength="100" name="customer['address_var']" value="<?php echo $customer['address_var']; ?>" data-error="Por favor, informe um endereço válido. Mínimo de 10 e máximo de 100 caracteres."  autocomplete="off">
                                     <div class="help-block with-errors"></div>
 
                                 </div>
                                 <div class="form-group">
                                     <label>RG</label>
-                                    <input type="text" id="rg" class="form-control" name="customer['rg_var']" value="<?php echo $customer['rg_var']; ?>" data-error="Por favor, informe um RG válido." autocomplete="off" required>
+                                    <input type="text" id="rg" class="form-control" name="customer['rg_var']" value="<?php echo $customer['rg_var']; ?>" data-error="Por favor, informe um RG válido." autocomplete="off">
                                     <div class="help-block with-errors"></div>
                                     <p class="help-block">Apenas números</p>
                                 </div>
                                 <div class="form-group">
                                     <label>CPF</label>
-                                    <input type="text" id="cpf" class="form-control" name="customer['cpf_var']" value="<?php echo $customer['cpf_var']; ?>" data-error="Por favor, informe um CPF válido"  autocomplete="off" required>
+                                    <input type="text" id="cpf" class="form-control" name="customer['cpf_var']" value="<?php echo $customer['cpf_var']; ?>" data-error="Por favor, informe um CPF válido"  autocomplete="off">
                                     <div class="help-block with-errors"></div>
                                     <p class="help-block">Apenas números.</p>
                                 </div>
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input type="email" class="form-control" minlength="5" maxlength="30" name="customer['email_var']" value="<?php echo $customer['email_var']; ?>" placeholder="Digite um e-mail válido..." data-error="Por favor, informe um e-mail válido. Mínimo de 5 e máximo de 30 caracteres."  autocomplete="off" required>
+                                    <input type="email" class="form-control" minlength="5" maxlength="100" name="customer['email_var']" value="<?php echo $customer['email_var']; ?>" placeholder="Digite um e-mail válido..." data-error="Por favor, informe um e-mail válido. Mínimo de 5 e máximo de 30 caracteres."  autocomplete="off" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
@@ -74,7 +74,7 @@ include('../session.php');
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
                                             <input type="text" id="birthday" class="form-control" name="customer['birthday_dt']" value="<?php echo date('d/m/Y', strtotime($customer['birthday_dt']));  ?>" autocomplete="off" placeholder="Digite a data de nascimento do cliente..." type="text"
-                                                  data-error="Por favor, informe uma data de nascimento válido." required>
+                                                  data-error="Por favor, informe uma data de nascimento válido.">
                                              </div>
                                              <div class="help-block with-errors"></div>
                                          </div>
