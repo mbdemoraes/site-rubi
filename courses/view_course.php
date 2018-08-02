@@ -78,8 +78,8 @@ include('../session.php');
 $(document).ready( function() {
   $('#tableCourses').dataTable( {
     "oLanguage": {
-      "sSearch": "Buscar clientes:",
-      "sLengthMenu": "Mostrar _MENU_ clientes",
+      "sSearch": "Buscar cursos:",
+      "sLengthMenu": "Mostrar _MENU_ cursos",
       "sInfo": "Mostrando _START_ até _END_ em um total de _TOTAL_ registros.",
       "sEmptyTable": "Nenhum registro encontrado.",
       "sInfoEmpty": "Nenhum registro para ser mostrado.",
