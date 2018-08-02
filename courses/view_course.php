@@ -35,7 +35,6 @@ include('../session.php');
 <table id="tableCourses" class="table table-striped table-bordered" cellspacing="0" width="100%">
        <thead>
     <tr>
-        <th>ID</th>
         <th width="30%">Nome</th>
         <th> Status </th>
         <th>Qtd. Vagas</th>
@@ -48,7 +47,6 @@ include('../session.php');
 <?php if ($courses) : ?>
 <?php foreach ($courses as $course) : ?>
     <tr>
-        <td><?php if(isset($course['id'])) { echo $course['id']; }  ?></td>
         <td><?php echo $course['name_var']; ?></td>
         <td><?php echo $course['status_var']; ?></td>
         <td><?php echo $course['numSlots_int']; ?></td>
