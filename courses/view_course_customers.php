@@ -92,7 +92,7 @@ $(function() {
         <th>Nome do Inscrito</th>
         <th>Situação de Pagamento</th>
         <th>Tipo de Pagamento</th>
-        <th>Info. de Pagamento</th>
+        <th>Observação</th>
         <th>Incluído em</th>
         <th>Opções</th>
     </tr>
