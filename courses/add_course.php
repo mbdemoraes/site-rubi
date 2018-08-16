@@ -129,6 +129,18 @@ include('../session.php');
                                               <div class="help-block with-errors"></div>
                                          </div>
 
+                                          <div class="form-group">
+                                            <label>Descrição:</label>
+                                            <div class="input-group input-append">
+                                            
+                                            <textarea class="form-control" rows="10" cols="80" id="description_var" name="course['description_var']" placeholder="Digite uma descrição para o curso..."  data-error="Por favor, informe uma descrição válida." autocomplete="off" required></textarea>
+                                            
+                                            
+                                            
+                                             </div>
+                                              <div class="help-block with-errors"></div>
+                                         </div>
+
                                         <button type="submit" class="btn btn-success">Cadastrar</button>
                                         <button type="reset" class="btn btn-warning">Desfazer</button>
 

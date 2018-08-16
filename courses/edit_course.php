@@ -150,6 +150,14 @@ include('../session.php');
                                              </div>
                                               <div class="help-block with-errors"></div>
                                          </div>
+
+                                          <div class="form-group">
+                                            <label>Descrição:</label>
+                                            <div class="input-group input-append">
+                                            
+                                            <textarea class="form-control" rows="10" cols="80" id="description_var" name="course['description_var']" placeholder="Digite uma descrição para o curso..."  data-error="Por favor, informe uma descrição válida." autocomplete="off" required <?php if($course['status_var']=='Fechado' || $course['status_var']=='Cancelado') echo "disabled"; ?>> <?php echo $course['description_var']; ?> </textarea>
+
+                                             </div>
                                           <div class="form-group" id="justification" style="<?php if($course['status_var']=='Aberto') echo "display: none;"; ?>">
                                             <label>Justificativa de Cancelamento</label>
                                             <div class="input-group input-append">
