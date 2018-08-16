@@ -233,13 +233,14 @@ function update_cost($idCost= null, $cost = null) {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-  $stmt = $conn->prepare('UPDATE tbl_costs SET type_var=:field1,value_dec=:field2,payment_tni=:field3,deadline_dt=:field4,modification_date_dt=:field5 WHERE id=:id');
+  $stmt = $conn->prepare('UPDATE tbl_costs SET type_var=:field1,value_dec=:field2,payment_tni=:field3,deadline_dt=:field4,modification_date_dt=:field5, description_var=:field6 WHERE id=:id');
   $stmt->execute(array(
     ':field1' => $cost["'type_var'"],
     ':field2' => $cost["'value_dec'"],
     ':field3' => $cost["'payment_tni'"],
     ':field4' => $cost["'deadline_dt'"],
     ':field5' => $cost['modification_date_dt'],
+    ':field6' => $cost["'description_var'"],
     ':id' => $idCost));
   $affected_rows = $stmt->rowCount();
 
@@ -273,14 +274,15 @@ function insert_cost($cost = null) {
   $conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $stmt = $conn->prepare("INSERT INTO tbl_costs(type_var,value_dec,payment_tni,deadline_dt, creation_date_dt, modification_date_dt) VALUES(:field1,:field2,:field3,:field4,:field5,:field6)");
+  $stmt = $conn->prepare("INSERT INTO tbl_costs(type_var,value_dec,payment_tni,deadline_dt, creation_date_dt, modification_date_dt, description_var) VALUES(:field1,:field2,:field3,:field4,:field5,:field6,:field7)");
   $stmt->execute(array(
     ':field1' => $cost["'type_var'"],
     ':field2' => $cost["'value_dec'"],
     ':field3' => $cost["'payment_tni'"],
     ':field4' => $cost["'deadline_dt'"],
     ':field5' => $cost['creation_date_dt'],
-    ':field6' => $cost['modification_date_dt']
+    ':field6' => $cost['modification_date_dt'],
+    ':field7' => $cost["'description_var'"]
     ));
   $affected_rows = $stmt->rowCount();
 

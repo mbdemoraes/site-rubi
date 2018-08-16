@@ -50,6 +50,14 @@ include('../session.php');
 
                                          </div>
 
+                                         <div class="form-group">
+                                            <label>Descrição:</label>
+                                            <div class="input-group input-append">
+                                            
+                                            <textarea class="form-control" rows="10" cols="80" id="description_var" name="cost['description_var']"  placeholder="Digite uma descrição da despesa..."  data-error="Por favor, informe uma descrição válida." autocomplete="off" required></textarea>
+                                            <div class="help-block with-errors"></div>
+                                             </div>
+
                                           <div class="form-group">
 
                                           <label for="sel1">Depesa paga:</label>
