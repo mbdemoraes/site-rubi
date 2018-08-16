@@ -35,7 +35,7 @@ include('../session.php');
     <tr>
         <th>ID</th>
         <th width="30%">Nome</th>
-        <th>CPF</th>
+        <th>Celular</th>
         <th>Email</th>
         <th>Opções</th>
     </tr>
@@ -46,7 +46,7 @@ include('../session.php');
     <tr>
         <td><?php if(isset($customer['id'])) { echo $customer['id']; }  ?></td>
         <td><?php echo $customer['name_var']; ?></td>
-        <td><?php echo $customer['cpf_var']; ?></td>
+        <td><?php echo $customer['cellphone_var']; ?></td>
         <td><?php echo $customer['email_var']; ?></td>
         <td class="actions text-right">
             <a href="edit_customer.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
