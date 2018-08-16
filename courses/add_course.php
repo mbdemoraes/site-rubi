@@ -71,7 +71,7 @@ include('../session.php');
                                               <div class="help-block with-errors"></div>
                                          </div>
                                          <div class="form-group">
-                                            <label>Valor do Curso</label>
+                                            <label>Custo do Curso</label>
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-usd"></span></span>
                                             <input type="number" min="1" max="3000" step="0.1"  class="form-control" name="course['price_dec']" placeholder="Digite o valor (individual) do curso ..."  data-error="Por favor, informe um valor válido." autocomplete="off" required>
@@ -80,23 +80,51 @@ include('../session.php');
                                               <p class="help-block">Valores permitidos: entre 1 e 3000. Para adicionar casas decimais, utilizar o ponto (.) Ex: O valor "3.000,70"  deve ser inserido como "3000.70" (sem as aspas).</p>
                                               <div class="help-block with-errors"></div>
                                          </div>
+                                         <div class="form-group">
+                                            <label>Custo Rubi</label>
+                                            <div class="input-group input-append">
+                                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-usd"></span></span>
+                                            <input type="number" min="1" max="3000" step="0.1"  class="form-control" name="course['price_rubi_dec']" placeholder="Digite o valor (individual) do curso ..."  data-error="Por favor, informe um valor válido." autocomplete="off" required>
+
+                                             </div>
+                                              <p class="help-block">Valores permitidos: entre 1 e 3000. Para adicionar casas decimais, utilizar o ponto (.) Ex: O valor "3.000,70"  deve ser inserido como "3000.70" (sem as aspas).</p>
+                                              <div class="help-block with-errors"></div>
+                                         </div>
 
 
                                         <div class="form-group" >
-                                        <label>Data do Curso</label>
+                                        <label>Data de Início</label>
 
                                         <div class="input-group input-append date" id="datePicker">
                                         <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-                                            <input type="text" id="event_date" class="form-control" name="course['event_date_dt']" placeholder="Informe a data do curso ..."  data-error="Por favor, informe uma data válida." autocomplete="off" required/>
+                                            <input type="text" id="event_date" class="form-control" name="course['event_date_dt']" placeholder="Informe a data de início do curso ..."  data-error="Por favor, informe uma data válida." autocomplete="off" required/>
+                                        </div>
+                                         <div class="help-block with-errors"></div>
+
+                                    </div>
+                                    <div class="form-group" >
+                                        <label>Data de Fim</label>
+
+                                        <div class="input-group input-append date" id="datePickerEnd">
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            <input type="text" id="event_date_final" class="form-control" name="course['event_date_final_dt']" placeholder="Informe a data de fim do curso ..."  data-error="Por favor, informe uma data válida." autocomplete="off" required/>
                                         </div>
                                          <div class="help-block with-errors"></div>
 
                                     </div>
                                      <div class="form-group">
-                                            <label>Horário do Curso</label>
+                                            <label>Horário do Início</label>
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-dashboard"></span></span>
-                                            <input type="text" id="event_hour" class="form-control" name="course['event_hour_var']" placeholder="Digite o horário do curso ..."  data-error="Por favor, informe um horário válido." autocomplete="off" required>
+                                            <input type="text" id="event_hour" class="form-control" name="course['event_hour_var']" placeholder="Digite o horário de início do curso ..."  data-error="Por favor, informe um horário válido." autocomplete="off" required>
+                                             </div>
+                                              <div class="help-block with-errors"></div>
+                                         </div>
+                                         <div class="form-group">
+                                            <label>Horário de Fim</label>
+                                            <div class="input-group input-append">
+                                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-dashboard"></span></span>
+                                            <input type="text" id="event_hour_final" class="form-control" name="course['event_hour_final_var']" placeholder="Digite o horário de fim do curso ..."  data-error="Por favor, informe um horário válido." autocomplete="off" required>
                                              </div>
                                               <div class="help-block with-errors"></div>
                                          </div>
@@ -133,12 +161,23 @@ $(document).ready(function() {
             // Revalidate the date field
             $('#eventForm').formValidation('revalidateField', 'date');
         });
+
+        $('#datePickerEnd')
+        .datepicker({
+            format: 'dd/mm/yyyy'
+        })
+        .on('changeDate', function(e) {
+            // Revalidate the date field
+            $('#eventForm').formValidation('revalidateField', 'date');
+        });
 });
 
 jQuery(function($){
 
    $("#event_hour").mask("99:99");
-    $("#event_date").mask("99/99/9999");
+   $("#event_hour_final").mask("99:99");
+   $("#event_date").mask("99/99/9999");
+   $("#event_date_final").mask("99/99/9999");
 
 });
 </script>

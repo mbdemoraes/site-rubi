@@ -124,6 +124,10 @@ function add() {
            $valueReplace = str_replace('/', '-', $value);
            $date = strtotime($valueReplace);
            $course["'event_date_dt'"] = date('Y-m-d',$date);
+        } else if ($key=="'event_date_final_dt'") {
+           $valueReplace = str_replace('/', '-', $value);
+           $date = strtotime($valueReplace);
+           $course["'event_date_final_dt'"] = date('Y-m-d',$date);
         }
       }
 
@@ -231,7 +235,11 @@ function edit() {
            $valueReplace = str_replace('/', '-', $value);
            $date = strtotime($valueReplace);
            $course["'event_date_dt'"] = date('Y-m-d',$date);
-            }
+            } else if ($key=="'event_date_final_dt'") {
+              $valueReplace = str_replace('/', '-', $value);
+              $date = strtotime($valueReplace);
+              $course["'event_date_final_dt'"] = date('Y-m-d',$date);
+           }
         }
         //update('tbl_courses', $id, $course);
         update_course($id, $course);

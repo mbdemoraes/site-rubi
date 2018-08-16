@@ -67,7 +67,7 @@ function insert_course($course = null) {
   $conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $stmt = $conn->prepare("INSERT INTO tbl_courses(name_var,professor_var,numSlots_int,numSlotsTaken_int,price_dec, event_date_dt, event_hour_var, status_var, creation_date_dt, modification_date_dt) VALUES(:field1,:field2,:field3,:field4,:field5,:field6,:field7,:field8,:field9,:field10)");
+  $stmt = $conn->prepare("INSERT INTO tbl_courses(name_var,professor_var,numSlots_int,numSlotsTaken_int,price_dec, event_date_dt, event_hour_var, status_var, creation_date_dt, modification_date_dt, event_date_final_dt, event_hour_final_var, price_rubi_dec, description_var) VALUES(:field1,:field2,:field3,:field4,:field5,:field6,:field7,:field8,:field9,:field10,:field11,:field12,:field13,:field14)");
   $stmt->execute(array(
     ':field1' => $course["'name_var'"],
     ':field2' => $course["'professor_var'"],
@@ -78,7 +78,11 @@ function insert_course($course = null) {
     ':field7' => $course["'event_hour_var'"],
     ':field8' => $course['status_var'],
     ':field9' => $course['creation_date_dt'],
-    ':field10' => $course['modification_date_dt']));
+    ':field10' => $course['modification_date_dt'],
+    ':field11' => $course["'event_date_final_dt'"],
+    ':field12' => $course["'event_hour_final_var'"],
+    ':field13' => $course["'price_rubi_dec'"],
+    ':field14' => $course["'description_var'"]));
   $affected_rows = $stmt->rowCount();
 
   return $affected_rows;
@@ -115,7 +119,7 @@ function update_course($idCourse= null, $course = null) {
   $conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $stmt = $conn->prepare('UPDATE tbl_courses SET name_var=:field1,professor_var=:field2,numSlots_int=:field3,price_dec=:field4,event_date_dt=:field5, event_hour_var=:field6, modification_date_dt=:field7, justification_var=:field8, status_var=:field9 WHERE id=:idCourse');
+  $stmt = $conn->prepare('UPDATE tbl_courses SET name_var=:field1,professor_var=:field2,numSlots_int=:field3,price_dec=:field4,event_date_dt=:field5, event_hour_var=:field6, modification_date_dt=:field7, justification_var=:field8, status_var=:field9, event_date_final_dt=:field10, event_hour_final_var=:field11, price_rubi_dec=:field12, description_var=:field13   WHERE id=:idCourse');
   $stmt->execute(array(
     ':field1' => $course["'name_var'"],
     ':field2' => $course["'professor_var'"],
@@ -126,6 +130,10 @@ function update_course($idCourse= null, $course = null) {
     ':field7' => $course['modification_date_dt'],
     ':field8' => $course["'justification_var'"],
     ':field9' => $course["'status_var'"],
+    ':field10' => $course["'event_date_final_dt'"],
+    ':field11' => $course["'event_hour_final_var'"],
+    ':field12' => $course["'price_rubi_dec'"],
+    ':field13' => $course["'description_var'"],
     ':idCourse' => $idCourse));
   $affected_rows = $stmt->rowCount();
 

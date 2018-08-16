@@ -94,7 +94,7 @@ include('../session.php');
                                          </div>
 
                                          <div class="form-group">
-                                            <label>Valor do Curso</label>
+                                            <label>Custo do Curso</label>
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-usd"></span></span>
                                             <input type="number" min="1" max="3000" step="0.1" autocomplete="off" class="form-control" name="course['price_dec']" data-error="Por favor, informe um valor válido." value="<?php echo $course['price_dec']; ?>" data-error="Por favor, informe um CPF válido"  required <?php if($course['status_var']=='Fechado' || $course['status_var']=='Cancelado') echo "disabled"; ?> >
@@ -103,9 +103,19 @@ include('../session.php');
                                              <div class="help-block with-errors"></div>
                                          </div>
 
+                                         <div class="form-group">
+                                            <label>Custo Rubi</label>
+                                            <div class="input-group input-append">
+                                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-usd"></span></span>
+                                            <input type="number" min="1" max="3000" step="0.1" autocomplete="off" class="form-control" name="course['price_rubi_dec']" data-error="Por favor, informe um valor válido." value="<?php echo $course['price_rubi_dec']; ?>" data-error="Por favor, informe um CPF válido"  required <?php if($course['status_var']=='Fechado' || $course['status_var']=='Cancelado') echo "disabled"; ?> >
+                                             </div>
+                                              <p class="help-block">Valores permitidos: entre 1 e 3000. Para adicionar casas decimais, utilizar o ponto (.) Ex: O valor "3.000,70"  deve ser inserido como "3000.70" (sem as aspas).</p>
+                                             <div class="help-block with-errors"></div>
+                                         </div>
+
 
                                         <div class="form-group" >
-                                        <label>Data do Curso</label>
+                                        <label>Data do Início</label>
 
                                         <div class="input-group input-append date" id="datePicker">
                                         <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -113,13 +123,30 @@ include('../session.php');
 
                                         </div>
                                          <div class="help-block with-errors"></div>
+                                         <div class="form-group" >
+                                        <label>Data de Fim</label>
+
+                                        <div class="input-group input-append date" id="datePickerEnd">
+                                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            <input type="text" id="event_date" class="form-control" autocomplete="off" required name="course['event_date_final_dt']" data-error="Por favor, informe uma data válida." value="<?php echo date('d/m/Y', strtotime($course['event_date_final_dt']));  ?>"  <?php if($course['status_var']=='Fechado' || $course['status_var']=='Cancelado') echo "disabled"; ?> />
+
+                                        </div>
+                                         <div class="help-block with-errors"></div>
 
                                     </div>
                                       <div class="form-group">
-                                            <label>Horário do Curso</label>
+                                            <label>Horário de Início</label>
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-dashboard"></span></span>
                                             <input type="text" id="event_hour" autocomplete="off" class="form-control" name="course['event_hour_var']" data-error="Por favor, informe um horário válido." required value="<?php echo $course['event_hour_var']; ?>" placeholder="Digite o horário do curso ..."  data-error="Por favor, informe um horário válido." required <?php if($course['status_var']=='Fechado' || $course['status_var']=='Cancelado') echo "disabled"; ?> >
+                                             </div>
+                                              <div class="help-block with-errors"></div>
+                                         </div>
+                                         <div class="form-group">
+                                            <label>Horário de Fim</label>
+                                            <div class="input-group input-append">
+                                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-dashboard"></span></span>
+                                            <input type="text" id="event_hour_final" autocomplete="off" class="form-control" name="course['event_hour_final_var']" data-error="Por favor, informe um horário válido." required value="<?php echo $course['event_hour_final_var']; ?>" placeholder="Digite o horário do curso ..."  data-error="Por favor, informe um horário válido." required <?php if($course['status_var']=='Fechado' || $course['status_var']=='Cancelado') echo "disabled"; ?> >
                                              </div>
                                               <div class="help-block with-errors"></div>
                                          </div>
@@ -171,13 +198,22 @@ $(document).ready(function() {
             $('#eventForm').formValidation('revalidateField', 'date');
         });
 
-
+        $('#datePickerEnd')
+        .datepicker({
+            format: 'dd/mm/yyyy'
+        })
+        .on('changeDate', function(e) {
+            // Revalidate the date field
+            $('#eventForm').formValidation('revalidateField', 'date');
+        });
 });
 
 jQuery(function($){
 
    $("#event_hour").mask("99:99");
-    $("#event_date").mask("99/99/9999");
+   $("#event_hour_final").mask("99:99");
+   $("#event_date").mask("99/99/9999");
+   $("#event_date_final").mask("99/99/9999");
 
 
 });
