@@ -64,11 +64,13 @@ include('../session.php');
 
                                           <label for="sel1">Selecione a situação de pagamento:</label>
                                           <select class="form-control " name="courseCustomer['payment_tni']" value="<?php echo $courseCustomer['payment_tni']; ?>" id="paymentSituation">
-                                           <option value="0"  <?php if($courseCustomer['payment_tni']==0) echo 'selected="selected"'; ?>>Vaga Reservada</option>
-                                           <option value="1"  <?php if($courseCustomer['payment_tni']==1) echo 'selected="selected"'; ?>>Pagamento Realizado</option>
+                                           <option value="0"  <?php if($courseCustomer['payment_tni']==0) echo 'selected="selected"'; ?>>Aguardando Pagamento</option>
+                                           <option value="1"  <?php if($courseCustomer['payment_tni']==1) echo 'selected="selected"'; ?>>Desistência</option>
+                                           <option value="2"  <?php if($courseCustomer['payment_tni']==2) echo 'selected="selected"'; ?>>Sinal Pago</option>
+                                           <option value="3"  <?php if($courseCustomer['payment_tni']==2) echo 'selected="selected"'; ?>>Pagamento Realizado</option>
                                           </select>
                                           </div>
-                                          <div class="form-group" id="paymentType" style="<?php if($courseCustomer['payment_tni']==0) echo "display: none;"; ?>">
+                                          <div class="form-group" id="paymentType">
                                           <label for="sel1">Selecione o tipo de pagamento:</label>
                                           <select class="form-control " name="courseCustomer['payment_type_var']" id="selectPaymentType" >
                                            <option value="none" <?php if($courseCustomer['payment_type_var']=="none") echo 'selected="selected"'; ?> >Não aplicável</option>
@@ -93,7 +95,7 @@ include('../session.php');
                                                <p class="help-block"> Campo para preenchimento de informações adicionais de pagamento. Se for uma reserva ou promoção, informar aqui o motivo. Se o pagamento for via Cartão, informar o número da fatura. Se o pagamento for via Boleto, informar o número do mesmo. Se for via Cheque, informar o número do cheque.</p>
                                          </div>
 
-                                           <div class="form-group" id="divPaymentDate" style="<?php if($courseCustomer['payment_tni']==0) echo "display: none;"; ?>">
+                                           <div class="form-group" id="divPaymentDate">
                                         <label>Data de Pagamento</label>
 
                                         <div class="input-group input-append date" id="datePicker">
@@ -149,7 +151,7 @@ jQuery(function($){
 
 });
 
-$('#paymentSituation').on('change',function(){
+/* $('#paymentSituation').on('change',function(){
     if( $(this).val()==="1"){
     $("#paymentType").show()
     $("#divPaymentDate").show()
@@ -160,5 +162,5 @@ $('#paymentSituation').on('change',function(){
     $("#paymentType").hide()
     $("#divPaymentDate").hide()
     }
-});
+}); */
 </script>
