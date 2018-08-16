@@ -64,9 +64,15 @@ include('../session.php');
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Telefone</label>
+                                    <label>Telefone Fixo</label>
 
                                     <input type="text" id="phone" class="form-control" name="customer['phone_var']" value="<?php echo $customer['phone_var']; ?>" data-error="Por favor, informe um telefone válido."  autocomplete="off" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Celular</label>
+
+                                    <input type="text" id="cellphone" class="form-control" name="customer['cellphone_var']" value="<?php echo $customer['cellphone_var']; ?>" data-error="Por favor, informe um celular válido."  autocomplete="off" required>
                                     <div class="help-block with-errors"></div>
                                 </div>
                                  <div class="form-group">
@@ -133,6 +139,7 @@ include('../session.php');
             jQuery(function($){
 
    $("#phone").mask("(99) 99999-9999");
+   $("#cellphone").mask("(99) 99999-9999");
     $("#rg").mask("99.999.999-9");
      $("#cpf").mask("999.999.999-99");
       $("#birthday").mask("99/99/9999");

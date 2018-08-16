@@ -95,11 +95,20 @@ include('../session.php');
                                             <div class="help-block with-errors"></div>
                                         </div>
                                          <div class="form-group">
-                                            <label>Telefone</label>
+                                            <label>Telefone Fixo</label>
                                             <div class="input-group input-append">
                                              <span class="input-group-addon add-on"><span class="glyphicon glyphicon-phone"></span></span>
                                             <input type="text" id="phone" class="form-control" name="customer['phone_var']" placeholder="Digite o telefone do cliente..." type="text"
-                                                  data-error="Por favor, informe um telefone válido." autocomplete="off" required>
+                                                  data-error="Por favor, informe um telefone válido." autocomplete="off">
+                                             </div>
+                                              <div class="help-block with-errors"></div>
+                                         </div>
+                                         <div class="form-group">
+                                            <label>Celular</label>
+                                            <div class="input-group input-append">
+                                             <span class="input-group-addon add-on"><span class="glyphicon glyphicon-phone"></span></span>
+                                            <input type="text" id="cellphone" class="form-control" name="customer['cellphone_var']" placeholder="Digite o celular do cliente..." type="text"
+                                                  data-error="Por favor, informe um celular válido." autocomplete="off" required>
                                              </div>
                                               <div class="help-block with-errors"></div>
                                          </div>
@@ -154,6 +163,7 @@ include('../session.php');
  jQuery(function($){
    $("#birthday").mask("99/99/9999");
    $("#phone").mask("(99) 99999-9999");
+   $("#cellphone").mask("(99) 99999-9999");
     $("#rg").mask("99.999.999-9");
      $("#cpf").mask("999.999.999-99");
 
